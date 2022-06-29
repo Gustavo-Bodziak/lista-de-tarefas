@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #010116;
+}
+
+.toDoList {
+    border-radius: 5px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.header {
+    background-color: #353aba;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    padding: 20px;
+    font-size: 1.5em;
+}
+
+.wrapper-list ul {
+    list-style: none;
+    font-size: 1.3em;
+}
+
+.wrapper-list ul li {
+    position: relative;
+    background-color: #0e1687;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 300ms ease;
+}
+
+.wrapper-list ul li.removed {
+    display: none;
+}
+
+.wrapper-list ul li.hidden {
+    animation: collapseTask 300ms ease;
+}
+
+.wrapper-list ul li:hover {
+    background-color: #151e9f;
+}
+
+.wrapper-list ul li:hover .removeButton {
+    opacity: 1;
+}
+
+.wrapper-list ul li #checkButton {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-color: #050936;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    margin-right: 15px;
+    transition: background-color 300ms ease;
+}
+
+.wrapper-list ul li #checkButton.done{
+    background-color: green;
+}
+.wrapper-list ul li #checkButton.done:hover{
+    background-color: green;
+}
+
+.wrapper-list ul li #checkButton:hover {
+    background-color: #f7df0d;
+}
+
+.wrapper-list ul li #checkButton.done + .task {
+    text-decoration: line-through;
+    color: #b1b2c9;
+}
+
+.wrapper-list ul li .removeButton {
+    content: 'X';
+    display: block;
+    right: 0;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-color: #db1165;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    margin-right: 15px;
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.wrapper-list ul li .removeButton::after {
+    content: 'X';
+    color: white;
+    display: block;
+}
+
+.footer .inputTask {
+    width: 100%;
+    padding: 20px;
+    font-size: 1em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #050936;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+@keyframes collapseTask {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    } 100% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+}
